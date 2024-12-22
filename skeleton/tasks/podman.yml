@@ -1,0 +1,64 @@
+---
+- name: Install podman
+  apk:
+    name:
+      - podman
+    state: present
+  tags: ['apk', 'podman']
+
+- name: Add cgroups to default runlevel
+  command: rc-update add cgroups default
+  args:
+    creates: /etc/runlevels/default/cgroups
+  tags: ['podman']
+
+- name: Ensure cgroups is started
+  service:
+    name: cgroups
+    state: started
+    enabled: yes
+  tags: ['podman']
+
+- name: Load tun kernel module
+  command: modprobe tun
+  args:
+    creates: /sys/module/tun
+  tags: ['podman']
+
+- name: Ensure tun module is loaded on boot
+  lineinfile:
+    path: /etc/modules
+    line: tun
+    state: present
+  tags: ['podman']
+
+- name: Set subuid for user
+  lineinfile:
+    path: /etc/subuid
+    line: "ricardo:100000:65536"
+    state: present
+    create: yes
+  tags: ['podman']
+
+- name: Set subgid for user
+  lineinfile:
+    path: /etc/subgid
+    line: "ricardo:100000:65536"
+    state: present
+    create: yes
+  tags: ['podman']
+
+- name: Do not complain if docker-compose is used
+  file:
+    path: /etc/containers/nodocker
+    state: touch
+    mode: '0644'
+
+- name: Check if root filesystem propagation is 'shared'
+  command: findmnt -o PROPAGATION / --noheadings
+  register: root_propagation
+  changed_when: false
+
+- name: Set root filesystem propagation to 'shared' if not already set
+  command: mount --make-rshared /
+  when: root_propagation.stdout.strip() != "shared"

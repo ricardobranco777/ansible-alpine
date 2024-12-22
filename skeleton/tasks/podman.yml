@@ -53,12 +53,26 @@
     path: /etc/containers/nodocker
     state: touch
     mode: '0644'
+  tags: ['podman']
 
 - name: Check if root filesystem propagation is 'shared'
   command: findmnt -o PROPAGATION / --noheadings
   register: root_propagation
   changed_when: false
+  tags: ['podman']
 
 - name: Set root filesystem propagation to 'shared' if not already set
   command: mount --make-rshared /
   when: root_propagation.stdout.strip() != "shared"
+  tags: ['podman']
+
+- name: Ensure / is shared in /etc/fstab
+  mount:
+    name: "{{ item.mount }}"
+    src: "{{ item.device }}"
+    fstype: "{{ item.fstype }}"
+    opts: "{{ item.options }},shared"
+    state: present
+  with_items: "{{ ansible_mounts }}"
+  when: item.mount == '/' and 'shared' not in item.options
+  tags: ['podman']

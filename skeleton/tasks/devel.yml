@@ -4,6 +4,7 @@
     name:
       - build-base
       - git
+      - go
       - make
       - patch
     state: present

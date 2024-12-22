@@ -18,6 +18,7 @@
       - tmux
       - udisks2
       - usbutils
+      - wget
       - xz
       - zip
       - zstd

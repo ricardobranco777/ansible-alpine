@@ -2,6 +2,7 @@
 - name: Install packages
   apk:
     name:
+      - attr
       - curl
       - iproute2
       - pciutils

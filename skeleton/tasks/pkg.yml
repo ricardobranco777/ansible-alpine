@@ -3,15 +3,24 @@
   apk:
     name:
       - attr
+      - bind-tools
       - curl
       - iproute2
+      - libarchive-tools
+      - lsof
+      - netcat-openbsd
       - pciutils
+      - pigz
       - procps-ng
       - psmisc
       - rsync
+      - screen
+      - tmux
       - udisks2
       - usbutils
       - xz
+      - zip
+      - zstd
     state: present
     update_cache: true
   tags: ['apk']

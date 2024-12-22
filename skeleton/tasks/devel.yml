@@ -3,9 +3,15 @@
   apk:
     name:
       - build-base
+      - cmake
+      - extra-cmake-modules
+      - fakeroot
       - git
       - go
+      - jq
+      - ltrace
       - make
       - patch
+      - strace
     state: present
   tags: ['apk', 'devel']

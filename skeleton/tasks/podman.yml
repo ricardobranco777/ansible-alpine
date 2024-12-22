@@ -2,7 +2,9 @@
 - name: Install podman
   apk:
     name:
+      - buildah
       - podman
+      - skopeo
     state: present
   tags: ['apk', 'podman']
 

@@ -11,6 +11,7 @@
       - grep
       - gzip
       - less
+      - readline
       - sed
       - tar
       - util-linux

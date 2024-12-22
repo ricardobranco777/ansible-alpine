@@ -1,9 +1,11 @@
 ---
-- name: Add shell
+- name: Add shell & man
   apk:
     name:
       - bash
       - bash-completion
+      - man-pages
+      - mandoc
     state: present
   tags: ['apk', 'user']
 

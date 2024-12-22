@@ -1,0 +1,22 @@
+---
+- name: Add apk-polkit-server to default runlevel
+  command: rc-update add apk-polkit-server default
+  args:
+    creates: /etc/runlevels/default/apk-polkit-server
+
+- name: Ensure apk-polkit-server is started
+  service:
+    name: apk-polkit-server
+    state: started
+    enabled: yes
+
+- name: Add openrc-settingsd to default runlevel
+  command: rc-update add openrc-settingsd default
+  args:
+    creates: /etc/runlevels/default/openrc-settingsd
+
+- name: Ensure openrc-settingsd is started
+  service:
+    name: openrc-settingsd
+    state: started
+    enabled: yes

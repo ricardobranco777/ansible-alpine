@@ -1,0 +1,17 @@
+---
+- name: Install security packages
+  apk:
+    name:
+      - doas
+      - sudo
+    state: present
+  tags: ['apk', 'security']
+
+- name: Configure sudo
+  copy:
+    src: sudoers.d/custom
+    dest: /etc/sudoers.d/custom
+    owner: root
+    group: root 
+    mode: 0600
+  tags: ['security']

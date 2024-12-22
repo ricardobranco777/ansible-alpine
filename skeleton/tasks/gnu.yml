@@ -1,0 +1,19 @@
+---
+- name: Install GNU packages
+  apk:
+    name:
+      - binutils
+      - coreutils
+      - diffutils
+      - findutils
+      - gawk
+      - gcompat
+      - grep
+      - gzip
+      - less
+      - sed
+      - tar
+      - util-linux
+      - vim
+    state: present
+  tags: ['apk', 'gnu']

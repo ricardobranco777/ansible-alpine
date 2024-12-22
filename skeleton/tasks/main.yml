@@ -1,0 +1,6 @@
+---
+- include_tasks: pkg.yml
+- include_tasks: gnu.yml
+- include_tasks: devel.yml
+- include_tasks: ssh.yml
+- include_tasks: user.yml

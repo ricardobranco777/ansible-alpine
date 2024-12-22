@@ -1,0 +1,25 @@
+---
+- name: Add shell
+  apk:
+    name:
+      - bash
+      - bash-completion
+    state: present
+  tags: ['apk', 'user']
+
+- name: Add user to needed groups
+  user:
+    name: ricardo
+    groups: wheel,plugdev
+    append: yes
+    shell: /bin/bash
+  tags: ['user']
+
+- name: Fix HOME permissions
+  file:
+    path: /home/ricardo
+    state: directory
+    owner: ricardo
+    group: ricardo
+    mode: '6750'
+  tags: ['user']

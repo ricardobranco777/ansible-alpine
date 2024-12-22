@@ -1,0 +1,6 @@
+---
+- name: Configure Alpine
+  hosts: all
+
+  roles:
+    - role: skeleton

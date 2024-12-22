@@ -1,0 +1,10 @@
+---
+- name: Install devel packages
+  apk:
+    name:
+      - build-base
+      - git
+      - make
+      - patch
+    state: present
+  tags: ['apk', 'devel']

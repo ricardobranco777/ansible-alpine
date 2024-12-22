@@ -1,0 +1,16 @@
+---
+- name: Install packages
+  apk:
+    name:
+      - curl
+      - iproute2
+      - pciutils
+      - procps-ng
+      - psmisc
+      - rsync
+      - udisks2
+      - usbutils
+      - xz
+    state: present
+    update_cache: true
+  tags: ['apk']

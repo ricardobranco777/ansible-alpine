@@ -8,10 +8,10 @@ setup-desktop
 ```
 
 Check:
-`ansible-playbook -v -C -i inventory main.yml`
+`ansible-playbook -v -C -i inventory.yml main.yml`
 
 Run with:
-`ansible-playbook -v -i inventory main.yml`
+`ansible-playbook -v -i inventory.yml main.yml`
 
 More information:
 

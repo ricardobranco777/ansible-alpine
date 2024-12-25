@@ -37,7 +37,7 @@
 - name: Set subuid for user
   lineinfile:
     path: /etc/subuid
-    line: "ricardo:100000:65536"
+    line: "{{ target_user }}:100000:65536"
     state: present
     create: yes
   tags: ['podman']
@@ -45,7 +45,7 @@
 - name: Set subgid for user
   lineinfile:
     path: /etc/subgid
-    line: "ricardo:100000:65536"
+    line: "{{ target_user }}:100000:65536"
     state: present
     create: yes
   tags: ['podman']

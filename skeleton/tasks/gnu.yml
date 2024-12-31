@@ -17,4 +17,3 @@
       - util-linux
       - vim
     state: present
-  tags: ['apk', 'gnu']

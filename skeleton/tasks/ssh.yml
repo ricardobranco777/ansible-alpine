@@ -6,7 +6,6 @@
     owner: root
     group: wheel
     mode: 0600
-  tags: ['ssh']
 
 - name: Add AllowUsers configuration
   copy:
@@ -16,4 +15,3 @@
     owner: root
     group: root
     mode: '0600'
-  tags: ['ssh']

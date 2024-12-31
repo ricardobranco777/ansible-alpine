@@ -5,30 +5,25 @@
       - docker
       - docker-compose
     state: present
-  tags: ['apk', 'docker']
 
 - name: Add cgroups to default runlevel
   command: rc-update add cgroups default
   args:
     creates: /etc/runlevels/default/cgroups
-  tags: ['docker']
 
 - name: Ensure cgroups is started
   service:
     name: cgroups
     state: started
     enabled: yes
-  tags: ['docker']
 
 - name: Add docker to default runlevel
   command: rc-update add docker default
   args:
     creates: /etc/runlevels/default/docker
-  tags: ['docker']
 
 - name: Ensure docker is started
   service:
     name: docker
     state: started
     enabled: yes
-  tags: ['docker']

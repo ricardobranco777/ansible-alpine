@@ -5,7 +5,6 @@
       - doas
       - sudo
     state: present
-  tags: ['apk', 'security']
 
 - name: Configure sudo
   copy:
@@ -14,4 +13,3 @@
     owner: root
     group: root 
     mode: 0600
-  tags: ['security']

@@ -14,4 +14,3 @@
       - patch
       - strace
     state: present
-  tags: ['apk', 'devel']

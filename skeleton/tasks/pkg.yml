@@ -5,6 +5,7 @@
       - attr
       - bind-tools
       - curl
+      - gnutls-tools
       - iproute2
       - libarchive-tools
       - lsof

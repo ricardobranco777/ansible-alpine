@@ -15,7 +15,6 @@
       - procps-ng
       - psmisc
       - rsync
-      - screen
       - tmux
       - udisks2
       - usbutils

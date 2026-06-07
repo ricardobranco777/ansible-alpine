@@ -5,6 +5,7 @@
       - attr
       - bind-tools
       - curl
+      - doas
       - gnutls-tools
       - iproute2
       - libarchive-tools
@@ -15,6 +16,7 @@
       - procps-ng
       - psmisc
       - rsync
+      - sudo
       - tmux
       - udisks2
       - usbutils

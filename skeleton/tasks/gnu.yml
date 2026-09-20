@@ -15,5 +15,6 @@
       - sed
       - tar
       - util-linux
+      - util-linux-login
       - vim
     state: present

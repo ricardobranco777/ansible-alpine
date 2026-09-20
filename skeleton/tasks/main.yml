@@ -1,4 +1,6 @@
 ---
+- include_tasks: firmware.yml
+  when: ansible_virtualization_type != 'kvm'
 - include_tasks: user.yml
 - include_tasks: pkg.yml
 - include_tasks: gnu.yml

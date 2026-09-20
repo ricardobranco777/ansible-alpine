@@ -1,0 +1,8 @@
+---
+- name: Install packages
+  apk:
+    name:
+      - amd-ucode
+      - intel-ucode
+    state: present
+    update_cache: true
